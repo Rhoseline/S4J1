@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Edit Gossip of The Gossip Project</title>
+	</head>
+<body>
+
+	<!-- On récupère l'id du gossip et on l'affiche dans le titre : -->
+	<h1>Page Edit Gossip</h1>
+
+	<h3>Modififer le gossip #<%= params['id'] %> :</h3>
+
+	<%= "<form action=\"/gossip/#{params['id']}/edit/\" method='POST'>" %>
+    Nouvel auteur :  <input type='text' name='gossip_new_author'/><br/>
+    Nouveau contenu : <input type='text' name='gossip_new_content'/><br/>
+    <input type='submit'/>
+  </form>
+
+	<p>
+		<a href="/">Retourner à la page des potins</a>
+	</p>
+
+	</body>
+</html>

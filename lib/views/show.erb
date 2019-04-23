@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>The Gossip Project - Page Gossip</title>
+  </head>
+<body>
+
+  <!-- On récupère l'id du gossip et on l'affiche dans le titre : -->
+  <h1>Page Gossip</h1>
+
+  <h3>Ceci est la page du Gossip #<%= params['id'] %> :</h3>
+
+    <!-- Grâce à la méthode .find on récupère l'id dans l'url et affiche la ligne du CSV qui lui correspondant. On stock l'auteur ainsi que le contenu dans des variables. -->
+      <% gossip_showed = Gossip.find(params['id'].to_i) %>
+      <% this_author = gossip_showed[0] %>
+      <% this_content = gossip_showed[1] %>
+
+      <p>
+        <!-- On affiche l'auteur ainsi que le contenu grâce aux variables faites plus haut -->
+        Son auteur : <%= this_author %><br/>
+        Le contenu du gossip : <%= this_content %>
+      </p>
+
+      <p>
+         <%= "<a href=\"/gossip/#{params['id']}/edit/\">Modifier le gossip</a>" %>
+      </p>
+
+      <p>
+        <a href="/">Retourner à la page des potins</a>
+      </p>
+
+  </body>
+</html>
+
